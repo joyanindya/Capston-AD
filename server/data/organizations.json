@@ -1,0 +1,22 @@
+[
+	{
+		"OrganizationName": "Barclays Premier League",
+		"OrganizationId": "Org1",
+		"Description": "English Soccer League"
+	},
+	{
+		"OrganizationName": "Spanish La Lega",
+		"OrganizationId": "Org2",
+		"Description": "Spanish Soccer League"
+	},
+	{
+		"OrganizationName": "German Bundesliga",
+		"OrganizationId": "Org3",
+		"Description": "German Soccer League"
+	},
+	{
+		"OrganizationName": "Italy Serie A",
+		"OrganizationId": "Org4",
+		"Description": "Italy Soccer League"
+	}
+]
