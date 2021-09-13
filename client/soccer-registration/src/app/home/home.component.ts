@@ -8,7 +8,7 @@ import { LeaguesService } from "../services/leagues.service";
   styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit {
-  private leagues: Array<Leagues>;
+  leagues: Array<Leagues>;
 
   constructor(private leaguesService: LeaguesService) {}
 
