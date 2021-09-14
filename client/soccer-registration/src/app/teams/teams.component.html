@@ -1,1 +1,53 @@
-<p>teams works!</p>
+  <p-table #dt [value]="teams" [rows]="10" [paginator]="true" [globalFilterFields]="['groupName']"
+    [(selection)]="selectedTeams" [rowHover]="true" dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex p-ai-center p-jc-between">
+        <h5 class="p-m-0">Manage Products</h5>
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+            placeholder="Search..." />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 3rem">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+        <th pSortableColumn="groupName">GroupName <p-sortIcon field="groupName"></p-sortIcon>
+        </th>
+        <th pSortableColumn="sponsorName">SponsorName <p-sortIcon field="sponsorName"></p-sortIcon>
+        </th>
+        <th pSortableColumn="sponsorPhone">SponsorPhone <p-sortIcon field="sponsorPhone"></p-sortIcon>
+        </th>
+        <th pSortableColumn="sponsorEmail">SponsorEmail <p-sortIcon field="sponsorEmail"></p-sortIcon>
+        </th>
+        <th pSortableColumn="maxGroupSize">MaxGroupSize <p-sortIcon field="maxGroupSize"></p-sortIcon>
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-team>
+      <tr>
+        <td>
+          <p-tableCheckbox [value]="team"></p-tableCheckbox>
+        </td>
+        <td>{{team.GroupName}}</td>
+        <td>{{team.SponsorName}}</td>
+        <td>{{team.SponsorPhone}}</td>
+        <td>{{team.SponsorEmail}}</td>
+        <td>{{team.MaxGroupSize}}</td>
+        <td>
+          <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"></button>
+          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="p-d-flex p-ai-center p-jc-between">
+        In total there are {{teams ? teams.length : 0 }} teams.
+      </div>
+    </ng-template>
+  </p-table>

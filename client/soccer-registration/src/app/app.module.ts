@@ -10,7 +10,8 @@ import { FooterComponent } from "./footer/footer.component";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { MainComponent } from "./main/main.component";
-import { TeamsComponent } from './teams/teams.component';
+import { TeamsComponent } from "./teams/teams.component";
+import { TableModule } from "primeng/table";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,13 @@ import { TeamsComponent } from './teams/teams.component';
     MainComponent,
     TeamsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, CommonModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CommonModule,
+    HttpClientModule,
+    TableModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
