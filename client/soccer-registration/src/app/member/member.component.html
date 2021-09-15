@@ -1,1 +1,63 @@
-<p>member works!</p>
+ <p-table #dt [columns]="cols" [value]="members" selectionMode="single" [(selection)]="selectedMember"
+   (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+   <ng-template pTemplate="caption">
+     Members List
+   </ng-template>
+   <ng-template pTemplate="header" let-columns>
+     <tr>
+       <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+         {{col.header}}
+         <p-sortIcon [field]="col.field"></p-sortIcon>
+       </th>
+     </tr>
+   </ng-template>
+   <ng-template pTemplate="body" let-rowData let-columns="columns">
+     <tr [pSelectableRow]="rowData">
+       <td *ngFor="let col of columns">
+         {{rowData[col.field]}}
+       </td>
+     </tr>
+   </ng-template>
+   <ng-template pTemplate="summary" let-rowData>
+     <div style="text-align:right">
+       <button pButton type="button" icon="pi pi-plus" iconPos="left" (click)="showDialogToAdd()"
+         label="Add Player"></button>
+     </div>
+   </ng-template>
+ </p-table>
+ <p-dialog header="Member Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"
+   [style]="{width: '300px'}">
+   <div class="ui-g ui-fluid" *ngIf="member">
+     <div class="ui-g-12">
+       <div class="ui-g-4">
+         <label for="MemberName">Player Name</label>
+       </div>
+       <div class="ui-g-8">
+         <input pInputText id="MemberName" [(ngModel)]="member.MemberName" />
+       </div>
+     </div>
+     <div class="ui-g-12">
+       <div class="ui-g-4">
+         <label for="MemberPhone">Player Phone</label>
+       </div>
+       <div class="ui-g-8">
+         <input pInputText id="MemberPhone" [(ngModel)]="member.MemberPhone" />
+       </div>
+     </div>
+     <div class="ui-g-12">
+       <div class="ui-g-4">
+         <label for="MemberEmail">Player Email</label>
+       </div>
+       <div class="ui-g-8">
+         <input pInputText id="MemberEmail" [(ngModel)]="member.MemberEmail" />
+       </div>
+     </div>
+   </div>
+   <p-footer>
+     <div class="ui-dialog-buttonpane ui-helper-clearfix">
+       <button type="button" pButton icon="pi pi-check" *ngIf="member.MemberId" (click)="delete(member.MemberId)"
+         label="Delete"></button>
+       <button type="button" pButton icon="pi pi-check" (click)="save(member)" label="Save"></button>
+     </div>
+   </p-footer>
+ </p-dialog>

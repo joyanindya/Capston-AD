@@ -15,7 +15,6 @@ export class TeamsComponent implements OnInit {
   selectedTeams: Teams;
   team: Teams = {};
   leagueId: string;
-  submitted: boolean;
   cols: any[];
   displayDialog: boolean;
   newTeam: boolean;
