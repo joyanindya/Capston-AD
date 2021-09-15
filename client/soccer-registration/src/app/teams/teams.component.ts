@@ -8,7 +8,7 @@ import { LeaguesService } from "../services/leagues.service";
 @Component({
   selector: "sr-teams",
   templateUrl: "./teams.component.html",
-  styleUrls: ["./teams.component.scss"],
+  styleUrls: ["./teams.component.css"],
 })
 export class TeamsComponent implements OnInit {
   teams: Array<Teams>;

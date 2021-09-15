@@ -15,7 +15,7 @@
    (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
    <ng-template pTemplate="caption">
      <div class="p-d-flex p-ai-center p-jc-between">
-       <h4 class="p-m-0">Teams List</h4>
+       <h4 class="p-m-0 teams-list">Teams List</h4>
        <span class="p-input-icon-left">
          <i class="pi pi-search"></i>
          <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
@@ -96,7 +96,6 @@
        <button type="button" pButton icon="pi pi-check" *ngIf="team.GroupId" (click)="delete(team.GroupId)"
          label="Delete"></button>
        <button type="button" pButton icon="pi pi-check" (click)="save(team)" label="Save"></button>
-
      </div>
    </p-footer>
  </p-dialog>

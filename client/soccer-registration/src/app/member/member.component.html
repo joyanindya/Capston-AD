@@ -35,32 +35,51 @@
        <div class="ui-g-4">
          <label for="MemberName">Player Name</label>
        </div>
-       <div class="ui-g-8">
-         <input pInputText id="MemberName" [(ngModel)]="member.MemberName" />
+       <div [formGroup]="teamForm" class="ui-g-8">
+         <input pInputText id="memberName" type="text" formControlName="memberName" placeholder="Player Name"
+           maxlength="30" [ngClass]="{'error':
+             !teamForm.controls['memberName'].valid&&teamForm.controls['memberName'].touched}"
+           [(ngModel)]="member.MemberName" />
+         <div class="ui-messages-error" *ngIf="!teamForm.valid && teamForm.controls['memberName'].dirty">
+           <span *ngIf="teamForm.controls['memberName'].hasError('required')">This field is required</span>
+         </div>
        </div>
      </div>
      <div class="ui-g-12">
        <div class="ui-g-4">
          <label for="MemberPhone">Player Phone</label>
        </div>
-       <div class="ui-g-8">
-         <input pInputText id="MemberPhone" [(ngModel)]="member.MemberPhone" />
+       <div [formGroup]="teamForm" class="ui-g-8">
+         <input pInputText id="memberPhone" type="text" formControlName="memberPhone" placeholder="Player Phone"
+           maxlength="10" [ngClass]="{'error':
+             !teamForm.controls['memberPhone'].valid&&teamForm.controls['memberPhone'].touched}"
+           [(ngModel)]="member.MemberPhone" />
+         <div class="ui-messages-error" *ngIf="!teamForm.valid && teamForm.controls['memberPhone'].dirty">
+           <span *ngIf="teamForm.controls['memberPhone'].hasError('required')">This field is required</span>
+         </div>
        </div>
      </div>
      <div class="ui-g-12">
        <div class="ui-g-4">
          <label for="MemberEmail">Player Email</label>
        </div>
-       <div class="ui-g-8">
-         <input pInputText id="MemberEmail" [(ngModel)]="member.MemberEmail" />
+       <div [formGroup]="teamForm" class="ui-g-8">
+         <input pInputText id="memberEmail" type="text" formControlName="memberEmail" placeholder="Player Name"
+           maxlength="30" [ngClass]="{'error':
+             !teamForm.controls['memberEmail'].valid&&teamForm.controls['memberEmail'].touched}"
+           [(ngModel)]="member.MemberEmail" />
+         <div class="ui-messages-error" *ngIf="!teamForm.valid && teamForm.controls['memberEmail'].dirty">
+           <span *ngIf="teamForm.controls['memberEmail'].hasError('required')">This field is required</span>
+         </div>
        </div>
      </div>
    </div>
    <p-footer>
-     <div class="ui-dialog-buttonpane ui-helper-clearfix">
+     <div [formGroup]="teamForm" class="ui-dialog-buttonpane ui-helper-clearfix">
        <button type="button" pButton icon="pi pi-check" *ngIf="member.MemberId" (click)="delete(member.MemberId)"
          label="Delete"></button>
-       <button type="button" pButton icon="pi pi-check" (click)="save(member)" label="Save"></button>
+       <button type="button" [disabled]="!(teamForm.valid && teamForm.dirty)" pButton icon="pi pi-check"
+         (click)="save(member)" label="Save"></button>
      </div>
    </p-footer>
  </p-dialog>

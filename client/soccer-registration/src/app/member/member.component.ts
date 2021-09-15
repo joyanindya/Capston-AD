@@ -5,6 +5,12 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { Teams } from "../models/Teams";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
 
 @Component({
   selector: "sr-member",
@@ -22,6 +28,8 @@ export class MemberComponent implements OnInit {
   newMember: boolean;
   groupName: string;
   leagueId: string;
+
+  teamForm: FormGroup;
 
   private subscribeToRouteParams(): Subscription {
     return this.route.params.subscribe((params: Params) => {
@@ -97,7 +105,8 @@ export class MemberComponent implements OnInit {
     private readonly route: ActivatedRoute,
     private readonly groupService: GroupsService,
     private readonly memberService: MemberService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -107,5 +116,13 @@ export class MemberComponent implements OnInit {
       { field: "MemberPhone", header: "Player Phone" },
       { field: "MemberEmail", header: "Player Email" },
     ];
+    this.teamForm = this.formBuilder.group({
+      memberName: new FormControl("", Validators.required),
+      memberPhone: new FormControl("", Validators.required),
+      memberEmail: new FormControl("", [
+        Validators.required,
+        Validators.pattern("^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$"),
+      ]),
+    });
   }
 }
