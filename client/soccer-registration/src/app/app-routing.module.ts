@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: "", component: HomeComponent },
       { path: "about", component: AboutComponent },
       { path: "teams/:id/:name", component: TeamsComponent },
-      { path: "members/:id", component: MemberComponent },
+      { path: "members/:groupId/:leagueId", component: MemberComponent },
       fallbackRoute,
     ],
   },

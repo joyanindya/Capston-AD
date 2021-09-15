@@ -77,7 +77,7 @@ export class TeamsComponent implements OnInit {
   }
 
   routeToMembers(groupId: number) {
-    this.router.navigate(["members", groupId]);
+    this.router.navigate(["members", groupId, this.leagueId]);
     console.log(groupId);
   }
 

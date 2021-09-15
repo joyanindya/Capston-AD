@@ -20,12 +20,16 @@ export class MemberComponent implements OnInit {
   cols: any[];
   displayDialog: boolean;
   newMember: boolean;
+  groupName: string;
+  leagueId: string;
 
   private subscribeToRouteParams(): Subscription {
     return this.route.params.subscribe((params: Params) => {
       if (params) {
-        this.groupId = params.id;
+        this.groupId = params.groupId;
+        this.leagueId = params.leagueId;
         console.log(this.groupId);
+        console.log(this.leagueId);
         this.getGroupById(this.groupId);
       }
     });
@@ -36,6 +40,7 @@ export class MemberComponent implements OnInit {
       this.team = reqs;
       console.log(this.team);
       this.members = this.team.Members;
+      this.groupName = this.team.GroupName;
       console.log(this.members);
     });
   }
@@ -84,10 +89,15 @@ export class MemberComponent implements OnInit {
     this.displayDialog = false;
   }
 
+  routeToTeams() {
+    this.router.navigate(["teams", this.leagueId, this.team.OrganizationName]);
+  }
+
   constructor(
     private readonly route: ActivatedRoute,
     private readonly groupService: GroupsService,
-    private readonly memberService: MemberService
+    private readonly memberService: MemberService,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {

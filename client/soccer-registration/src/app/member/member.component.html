@@ -1,7 +1,8 @@
+ <h1>Player's Details of {{groupName}}</h1>
  <p-table #dt [columns]="cols" [value]="members" selectionMode="single" [(selection)]="selectedMember"
    (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
    <ng-template pTemplate="caption">
-     Members List
+     Players List
    </ng-template>
    <ng-template pTemplate="header" let-columns>
      <tr>
@@ -22,6 +23,8 @@
      <div style="text-align:right">
        <button pButton type="button" icon="pi pi-plus" iconPos="left" (click)="showDialogToAdd()"
          label="Add Player"></button>
+       <button pButton type="button" icon="pi pi-plus" iconPos="right" routerLink="teams" (click)="routeToTeams()"
+         label="Back"></button>
      </div>
    </ng-template>
  </p-table>
