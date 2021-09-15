@@ -27,9 +27,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  routeToTeams(leagueId: string) {
+  routeToTeams(leagueId: string, leagueName: string) {
     this.teamsLinkClicked = true;
-    this.router.navigate(["teams", leagueId]);
+    this.router.navigate(["teams", leagueId, leagueName]);
   }
 
   ngOnInit(): void {

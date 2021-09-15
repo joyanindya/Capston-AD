@@ -1,6 +1,7 @@
 <h1>Please Check the below leagues</h1>
 <ul>
   <span *ngFor="let league of leagues">
-    <li routerLink="teams" (click)="routeToTeams(league.OrganizationId)">{{ league.OrganizationName }}</li>
+    <li routerLink="teams" (click)="routeToTeams(league.OrganizationId, league.OrganizationName)">
+      {{ league.OrganizationName }}</li>
   </span>
 </ul>
