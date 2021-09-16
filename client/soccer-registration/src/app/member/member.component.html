@@ -70,6 +70,8 @@
            [(ngModel)]="member.MemberEmail" />
          <div class="ui-messages-error" *ngIf="!teamForm.valid && teamForm.controls['memberEmail'].dirty">
            <span *ngIf="teamForm.controls['memberEmail'].hasError('required')">This field is required</span>
+           <span *ngIf="teamForm.controls['memberEmail'].hasError('pattern')">This field should be an e-mail address in
+             the format "user@example.com"</span>
          </div>
        </div>
      </div>

@@ -1,7 +1,36 @@
-<h1>Please Check the below leagues</h1>
-<ul>
-  <span *ngFor="let league of leagues">
-    <li routerLink="teams" (click)="routeToTeams(league.OrganizationId, league.OrganizationName)">
-      {{ league.OrganizationName }}</li>
-  </span>
-</ul>
+<h1>Register In Your Favorites</h1>
+<div class="flex-container">
+  <div *ngFor="let league of leagues">
+    <div [ngSwitch]="league.OrganizationId">
+      <div *ngSwitchCase="'Org1'" class="flex-child" routerLink="teams"
+        (click)="routeToTeams(league.OrganizationId, league.OrganizationName)">
+        <img src="../../assets/images/epl.jpeg" style="width: 300px; height: 300px;">
+        <div>
+          <h3>{{ league.OrganizationName }}</h3>
+        </div>
+      </div>
+      <div *ngSwitchCase="'Org2'" class="flex-child" routerLink="teams"
+        (click)="routeToTeams(league.OrganizationId, league.OrganizationName)">
+        <img src="../../assets/images/La_Liga.jpeg" style="width: 300px; height: 300px;">
+        <div>
+          <h3>{{ league.OrganizationName }}</h3>
+        </div>
+      </div>
+      <div *ngSwitchCase="'Org3'" class="flex-child" routerLink="teams"
+        (click)="routeToTeams(league.OrganizationId, league.OrganizationName)">
+        <img src="../../assets/images/BundesLiga.jpeg" style="width: 300px; height: 300px;">
+        <div>
+          <h3>{{ league.OrganizationName }}</h3>
+        </div>
+      </div>
+      <div *ngSwitchCase="'Org4'" class="flex-child" routerLink="teams"
+        (click)="routeToTeams(league.OrganizationId, league.OrganizationName)">
+        <img src="../../assets/images/Italy.jpeg" style="width: 300px; height: 300px;">
+        <div>
+          <h3>{{ league.OrganizationName }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

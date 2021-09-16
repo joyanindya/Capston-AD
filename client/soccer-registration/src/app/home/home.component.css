@@ -1,6 +1,24 @@
-body {
-  background-image: url("../../assets/images/background.jpeg");
+h1 {
+  text-align: center;
 }
-li{
+
+h3{
+  text-align: center;
+  
+}
+
+.flex-container {
+  display: flex;
+  
+}
+
+.flex-child {
+  flex: 1;
+  border: 2px solid;
   cursor: pointer;
+  background-color:rosybrown;
+}
+
+.flex-child:first-child {
+  margin-right: 20px;
 }

@@ -15,8 +15,8 @@
    (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
    <ng-template pTemplate="caption">
      <div class="p-d-flex p-ai-center p-jc-between">
-       <h4 class="p-m-0 teams-list">Teams List</h4>
-       <span class="p-input-icon-left">
+       <h3 class="p-m-0 teams-list">Teams List</h3>
+       <span class="p-input-icon-left search-box">
          <i class="pi pi-search"></i>
          <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
            placeholder="Search..." />
