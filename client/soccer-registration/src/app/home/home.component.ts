@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+
 import { Leagues } from "../models/Leagues";
 import { Teams } from "../models/Teams";
 import { LeaguesService } from "../services/leagues.service";

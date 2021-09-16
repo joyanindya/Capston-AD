@@ -1,7 +1,8 @@
-import { GroupsService } from "./../services/groups.service";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Subscription } from "rxjs";
+
+import { GroupsService } from "./../services/groups.service";
 import { Teams } from "../models/Teams";
 import { LeaguesService } from "../services/leagues.service";
 import {

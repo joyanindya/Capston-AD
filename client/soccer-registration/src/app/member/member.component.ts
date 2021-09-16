@@ -1,9 +1,10 @@
-import { MemberService } from "./../services/member.service";
-import { GroupsService } from "./../services/groups.service";
-import { Members } from "./../models/Members";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Subscription } from "rxjs";
+
+import { MemberService } from "./../services/member.service";
+import { GroupsService } from "./../services/groups.service";
+import { Members } from "./../models/Members";
 import { Teams } from "../models/Teams";
 import {
   FormBuilder,
@@ -28,7 +29,6 @@ export class MemberComponent implements OnInit {
   newMember: boolean;
   groupName: string;
   leagueId: string;
-
   memberForm: FormGroup;
 
   private subscribeToRouteParams(): Subscription {

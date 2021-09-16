@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+
 import { Leagues } from "../models/Leagues";
 import { Teams } from "../models/Teams";
 
