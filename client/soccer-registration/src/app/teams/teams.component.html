@@ -52,50 +52,84 @@
        <div class="ui-g-4">
          <label for="GroupName">Team Name</label>
        </div>
-       <div class="ui-g-8">
-         <input pInputText id="GroupName" [(ngModel)]="team.GroupName" />
+       <div class="ui-g-8" [formGroup]="teamForm">
+         <input pInputText id="groupName" type="text" formControlName="groupName" placeholder="Team Name" maxlength="30"
+           [ngClass]="{'error':
+             !teamForm.controls['groupName'].valid && teamForm.controls['groupName'].touched}"
+           [(ngModel)]="team.GroupName" />
+         <div class="ui-messages-error" *ngIf="!teamForm.valid && teamForm.controls['groupName'].dirty">
+           <span *ngIf="teamForm.controls['groupName'].hasError('required')">This field is required</span>
+         </div>
        </div>
      </div>
      <div class="ui-g-12">
        <div class="ui-g-4">
          <label for="SponsorName">Sponsor Name</label>
        </div>
-       <div class="ui-g-8">
-         <input pInputText id="SponsorName" [(ngModel)]="team.SponsorName" />
+       <div class="ui-g-8" [formGroup]="teamForm">
+         <input pInputText id="sponsorName" type="text" formControlName="sponsorName" placeholder="Sponsor Name"
+           maxlength="30" [ngClass]="{'error':
+             !teamForm.controls['sponsorName'].valid && teamForm.controls['sponsorName'].touched}"
+           [(ngModel)]="team.SponsorName" />
+         <div class="ui-messages-error" *ngIf="!teamForm.valid && teamForm.controls['sponsorName'].dirty">
+           <span *ngIf="teamForm.controls['sponsorName'].hasError('required')">This field is required</span>
+         </div>
        </div>
      </div>
      <div class="ui-g-12">
        <div class="ui-g-4">
          <label for="SponsorPhone">Sponsor Phone</label>
        </div>
-       <div class="ui-g-8">
-         <input pInputText id="SponsorPhone" [(ngModel)]="team.SponsorPhone" />
+       <div class="ui-g-8" [formGroup]="teamForm">
+         <input pInputText id="sponsorPhone" type="text" formControlName="sponsorPhone" placeholder="Sponsor Phone"
+           maxlength="30" [ngClass]="{'error':
+             !teamForm.controls['sponsorPhone'].valid && teamForm.controls['sponsorPhone'].touched}"
+           [(ngModel)]="team.SponsorPhone" />
+         <div class="ui-messages-error" *ngIf="!teamForm.valid && teamForm.controls['sponsorPhone'].dirty">
+           <span *ngIf="teamForm.controls['sponsorPhone'].hasError('required')">This field is required</span>
+         </div>
        </div>
      </div>
      <div class="ui-g-12">
        <div class="ui-g-4">
          <label for="SponsorEmail">Sponsor Email</label>
        </div>
-       <div class="ui-g-8">
-         <input pInputText id="SponsorEmail" [(ngModel)]="team.SponsorEmail" />
+       <div class="ui-g-8" [formGroup]="teamForm">
+         <input pInputText id="sponsorEmail" type="text" formControlName="sponsorEmail" placeholder="Sponsor Email"
+           maxlength="30" [ngClass]="{'error':
+             !teamForm.controls['sponsorEmail'].valid && teamForm.controls['sponsorEmail'].touched}"
+           [(ngModel)]="team.SponsorEmail" />
+         <div class="ui-messages-error" *ngIf="!teamForm.valid && teamForm.controls['sponsorEmail'].dirty">
+           <span *ngIf="teamForm.controls['sponsorEmail'].hasError('required')">This field is required</span>
+           <span *ngIf="teamForm.controls['sponsorEmail'].hasError('pattern')">This field should be an e-mail address
+             in
+             the format "user@example.com"</span>
+         </div>
        </div>
      </div>
      <div class="ui-g-12">
        <div class="ui-g-4">
          <label for="MaxGroupSize">Max Group Size</label>
        </div>
-       <div class="ui-g-8">
-         <input pInputText id="MaxGroupSize" [(ngModel)]="team.MaxGroupSize" />
+       <div class="ui-g-8" [formGroup]="teamForm">
+         <input pInputText id="maxGroupSize" type="text" formControlName="maxGroupSize" placeholder="Max Group Size"
+           maxlength="2" [ngClass]="{'error':
+             !teamForm.controls['maxGroupSize'].valid && teamForm.controls['maxGroupSize'].touched}"
+           [(ngModel)]="team.MaxGroupSize" />
+         <div class="ui-messages-error" *ngIf="!teamForm.valid && teamForm.controls['maxGroupSize'].dirty">
+           <span *ngIf="teamForm.controls['maxGroupSize'].hasError('required')">This field is required</span>
+         </div>
        </div>
      </div>
    </div>
    <button type="button" pButton icon="pi pi-plus" *ngIf="team.GroupId" routerLink="members"
      (click)="routeToMembers(team.GroupId)" label=" View Members"></button>
    <p-footer>
-     <div class="ui-dialog-buttonpane ui-helper-clearfix">
+     <div class="ui-dialog-buttonpane ui-helper-clearfix" [formGroup]="teamForm">
        <button type="button" pButton icon="pi pi-check" *ngIf="team.GroupId" (click)="delete(team.GroupId)"
          label="Delete"></button>
-       <button type="button" pButton icon="pi pi-check" (click)="save(team)" label="Save"></button>
+       <button type="button" [disabled]="!(teamForm.valid && teamForm.dirty)" pButton icon="pi pi-check"
+         (click)="save(team)" label="Save"></button>
      </div>
    </p-footer>
  </p-dialog>

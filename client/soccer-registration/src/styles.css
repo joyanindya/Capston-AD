@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
     background-color:honeydew;
+    font-family: Georgia,sans-serif;
+    letter-spacing: 1px;
 }

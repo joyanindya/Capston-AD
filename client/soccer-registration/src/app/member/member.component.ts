@@ -29,7 +29,7 @@ export class MemberComponent implements OnInit {
   groupName: string;
   leagueId: string;
 
-  teamForm: FormGroup;
+  memberForm: FormGroup;
 
   private subscribeToRouteParams(): Subscription {
     return this.route.params.subscribe((params: Params) => {
@@ -116,7 +116,7 @@ export class MemberComponent implements OnInit {
       { field: "MemberPhone", header: "Player Phone" },
       { field: "MemberEmail", header: "Player Email" },
     ];
-    this.teamForm = this.formBuilder.group({
+    this.memberForm = this.formBuilder.group({
       memberName: new FormControl("", Validators.required),
       memberPhone: new FormControl("", Validators.required),
       memberEmail: new FormControl("", [

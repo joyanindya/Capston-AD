@@ -4,6 +4,12 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { Teams } from "../models/Teams";
 import { LeaguesService } from "../services/leagues.service";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
 
 @Component({
   selector: "sr-teams",
@@ -19,12 +25,14 @@ export class TeamsComponent implements OnInit {
   displayDialog: boolean;
   newTeam: boolean;
   organizationName: string;
+  teamForm: FormGroup;
 
   constructor(
     private readonly route: ActivatedRoute,
     private readonly leaguesService: LeaguesService,
     private readonly groupService: GroupsService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly formBuilder: FormBuilder
   ) {}
 
   private subscribeToRouteParams(): Subscription {
@@ -101,5 +109,16 @@ export class TeamsComponent implements OnInit {
       { field: "SponsorEmail", header: "Sponsor Email" },
       { field: "MaxGroupSize", header: "Max Group Size" },
     ];
+
+    this.teamForm = this.formBuilder.group({
+      groupName: new FormControl("", Validators.required),
+      sponsorName: new FormControl("", Validators.required),
+      sponsorPhone: new FormControl("", Validators.required),
+      maxGroupSize: new FormControl("", Validators.required),
+      sponsorEmail: new FormControl("", [
+        Validators.required,
+        Validators.pattern("^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$"),
+      ]),
+    });
   }
 }

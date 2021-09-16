@@ -1,0 +1,21 @@
+.about-section {
+  padding: 0px;
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-images {
+  padding-right: 10px;
+}
+
+.flex-text {
+  flex: 1;
+  text-align: left;
+}
+
+.flex-child:first-child {
+  margin-right: 0px;
+}
