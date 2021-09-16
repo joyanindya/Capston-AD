@@ -56,6 +56,7 @@
            [(ngModel)]="member.MemberPhone" />
          <div class="ui-messages-error" *ngIf="!memberForm.valid && memberForm.controls['memberPhone'].dirty">
            <span *ngIf="memberForm.controls['memberPhone'].hasError('required')">This field is required</span>
+           <span *ngIf="memberForm.controls['memberPhone'].hasError('pattern')">Only numbers allowed</span>
          </div>
        </div>
      </div>
@@ -64,7 +65,7 @@
          <label for="MemberEmail">Player Email</label>
        </div>
        <div [formGroup]="memberForm" class="ui-g-8">
-         <input pInputText id="memberEmail" type="text" formControlName="memberEmail" placeholder="Player Name"
+         <input pInputText id="memberEmail" type="text" formControlName="memberEmail" placeholder="Player Email"
            maxlength="30" [ngClass]="{'error':
              !memberForm.controls['memberEmail'].valid&&memberForm.controls['memberEmail'].touched}"
            [(ngModel)]="member.MemberEmail" />

@@ -87,6 +87,7 @@
            [(ngModel)]="team.SponsorPhone" />
          <div class="ui-messages-error" *ngIf="!teamForm.valid && teamForm.controls['sponsorPhone'].dirty">
            <span *ngIf="teamForm.controls['sponsorPhone'].hasError('required')">This field is required</span>
+           <span *ngIf="teamForm.controls['sponsorPhone'].hasError('pattern')">Only numbers allowed</span>
          </div>
        </div>
      </div>
@@ -118,6 +119,7 @@
            [(ngModel)]="team.MaxGroupSize" />
          <div class="ui-messages-error" *ngIf="!teamForm.valid && teamForm.controls['maxGroupSize'].dirty">
            <span *ngIf="teamForm.controls['maxGroupSize'].hasError('required')">This field is required</span>
+           <span *ngIf="teamForm.controls['maxGroupSize'].hasError('pattern')">Only numbers allowed</span>
          </div>
        </div>
      </div>

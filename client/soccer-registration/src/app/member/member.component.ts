@@ -118,7 +118,10 @@ export class MemberComponent implements OnInit {
     ];
     this.memberForm = this.formBuilder.group({
       memberName: new FormControl("", Validators.required),
-      memberPhone: new FormControl("", Validators.required),
+      memberPhone: new FormControl("", [
+        Validators.required,
+        Validators.pattern("^[0-9]*$"),
+      ]),
       memberEmail: new FormControl("", [
         Validators.required,
         Validators.pattern("^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$"),

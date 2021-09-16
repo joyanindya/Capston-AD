@@ -113,8 +113,14 @@ export class TeamsComponent implements OnInit {
     this.teamForm = this.formBuilder.group({
       groupName: new FormControl("", Validators.required),
       sponsorName: new FormControl("", Validators.required),
-      sponsorPhone: new FormControl("", Validators.required),
-      maxGroupSize: new FormControl("", Validators.required),
+      sponsorPhone: new FormControl("", [
+        Validators.required,
+        Validators.pattern("^[0-9]*$"),
+      ]),
+      maxGroupSize: new FormControl("", [
+        Validators.required,
+        Validators.pattern("^[0-9]*$"),
+      ]),
       sponsorEmail: new FormControl("", [
         Validators.required,
         Validators.pattern("^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$"),
