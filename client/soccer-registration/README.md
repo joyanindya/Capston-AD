@@ -4,7 +4,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Please visit the link here to set up your machine to run angular project https://angular.io/guide/setup-local
+
+2. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Run Node Server
+
+Please go to the /Capston-AD/capston-project/server and run the command `node server.js` to start the Back end server
 
 ## Code scaffolding
 
