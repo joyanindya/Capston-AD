@@ -6,11 +6,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. Please visit the link here to set up your machine to run angular project https://angular.io/guide/setup-local
 
-2. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+2. once you have node , node package manager and angular cli installed then please go to the folder {your local path}/Capston-AD/capston-project/client/soccer-registration and run the command `npm install` . this will install all node modules to run your project .
+
+3. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+**\* before running the application by using `ng serve` please run the below step ## Run Node Server **
 
 ## Run Node Server
 
-Please go to the /Capston-AD/capston-project/server and run the command `node server.js` to start the Back end server
+1. Please go to the {your local path}/Capston-AD/capston-project/server and run the command `npm install` .
+
+2. After you run that command it will download all node dependecies to run the node back end . after that Please run `node server.js` to start the Back end server
 
 ## Code scaffolding
 
