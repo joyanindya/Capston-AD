@@ -21,11 +21,14 @@ export class HomeComponent implements OnInit {
   ) {}
 
   getAllLeagues() {
-    this.leaguesService.getAllLeagues().subscribe((reqs) => {
-      this.leagues = reqs;
-      console.table(this.leagues);
-      console.log(this.leagues[1].Description);
-    });
+    this.leaguesService.getAllLeagues().subscribe(
+      (reqs) => {
+        this.leagues = reqs;
+        console.table(this.leagues);
+        console.log(this.leagues[1].Description);
+      },
+      (error) => alert("Sorry, unable to get leagues.")
+    );
   }
 
   routeToTeams(leagueId: string, leagueName: string) {

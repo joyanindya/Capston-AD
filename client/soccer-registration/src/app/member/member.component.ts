@@ -44,13 +44,16 @@ export class MemberComponent implements OnInit {
   }
 
   getGroupById(groupId: number) {
-    this.groupService.getOneGroupById(groupId).subscribe((reqs) => {
-      this.team = reqs;
-      console.log(this.team);
-      this.members = this.team.Members;
-      this.groupName = this.team.GroupName;
-      console.log(this.members);
-    });
+    this.groupService.getOneGroupById(groupId).subscribe(
+      (reqs) => {
+        this.team = reqs;
+        console.log(this.team);
+        this.members = this.team.Members;
+        this.groupName = this.team.GroupName;
+        console.log(this.members);
+      },
+      (error) => alert("Sorry, unable to get players.")
+    );
   }
 
   onRowSelect(event) {
@@ -91,7 +94,7 @@ export class MemberComponent implements OnInit {
       (group) => {
         this.getGroupById(this.groupId);
       },
-      (error) => alert("Sorry, unable to add course.")
+      (error) => alert("Sorry, unable to add player.")
     );
     this.team = {};
     this.displayDialog = false;

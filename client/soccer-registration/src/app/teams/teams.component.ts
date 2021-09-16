@@ -47,10 +47,13 @@ export class TeamsComponent implements OnInit {
     });
   }
   private getAllTeamsByLeagues(leagueId: string) {
-    this.leaguesService.getAllTeamsByLeagues(leagueId).subscribe((reqs) => {
-      this.teams = reqs;
-      console.log(this.teams);
-    });
+    this.leaguesService.getAllTeamsByLeagues(leagueId).subscribe(
+      (reqs) => {
+        this.teams = reqs;
+        console.log(this.teams);
+      },
+      (error) => alert("Sorry, unable to get team.")
+    );
   }
 
   onRowSelect(event) {
@@ -79,7 +82,7 @@ export class TeamsComponent implements OnInit {
       (group) => {
         this.getAllTeamsByLeagues(this.leagueId);
       },
-      (error) => alert("Sorry, unable to add course.")
+      (error) => alert("Sorry, unable to delete team.")
     );
     this.team = {};
     this.displayDialog = false;
@@ -95,7 +98,7 @@ export class TeamsComponent implements OnInit {
       (group) => {
         this.getAllTeamsByLeagues(this.leagueId);
       },
-      (error) => alert("Sorry, unable to add course.")
+      (error) => alert("Sorry, unable to add team.")
     );
     this.team = {};
     this.displayDialog = false;
