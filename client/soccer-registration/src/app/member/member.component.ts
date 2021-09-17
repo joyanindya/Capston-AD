@@ -16,7 +16,7 @@ import {
 @Component({
   selector: "sr-member",
   templateUrl: "./member.component.html",
-  styleUrls: ["./member.component.css"],
+  styleUrls: ["./member.component.scss"],
 })
 export class MemberComponent implements OnInit {
   groupId: number;

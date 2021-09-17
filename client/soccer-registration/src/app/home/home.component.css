@@ -15,7 +15,7 @@ h3{
   flex: 1;
   border: 2px solid;
   cursor: pointer;
-  background-color:rosybrown;
+  background-color:lightblue;
 }
 
 .flex-child:first-child {

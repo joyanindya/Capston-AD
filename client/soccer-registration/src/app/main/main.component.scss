@@ -1,0 +1,23 @@
+.main-class {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
+  min-height: calc(100vh - 40px);
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    background-image: url(../../assets/images/background.jpg);
+    background-size: cover;
+    opacity: 0.35;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+}
+

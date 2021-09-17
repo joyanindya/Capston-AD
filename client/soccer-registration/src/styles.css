@@ -1,25 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
 body{
     font-family: Georgia,sans-serif;
-    letter-spacing: 1px;
     background-color:honeydew;
 }
-
-/*  background-image: url("assets/images/background.jpg");
-background-repeat: no-repeat;
-background-size: 100%;
-*/
-
-/* TO DO Set up BackGround Image */
-
-/* .homeImage {
-  background-image: url("assets/images/background.jpg");
-  background-repeat: no-repeat;
-  background-size:cover;
-}
-
-.aboutImage {
-  background-image: url("assets/images/background.jpg");
-  background-repeat: no-repeat;
-  background-size:cover; 
-} */

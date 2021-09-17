@@ -4,8 +4,14 @@
   display: flex;
   justify-content: space-around ;
   align-items: center;
+  z-index: 2;
 }
 
 .header-footer>* {
   margin: 0 1em;
+}
+
+.wrapper {
+  height: 100%;
+  z-index: 1;
 }

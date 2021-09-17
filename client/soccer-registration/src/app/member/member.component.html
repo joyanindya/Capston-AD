@@ -21,10 +21,10 @@
    </ng-template>
    <ng-template pTemplate="summary" let-rowData>
      <div style="text-align:right">
+       <button class="back-btn" pButton type="button" iconPos="right" routerLink="teams" (click)="routeToTeams()"
+         label="Back"></button>
        <button pButton type="button" icon="pi pi-plus" iconPos="left" (click)="showDialogToAdd()"
          label="Add Player"></button>
-       <button pButton type="button" icon="pi pi-plus" iconPos="right" routerLink="teams" (click)="routeToTeams()"
-         label="Back"></button>
      </div>
    </ng-template>
  </p-table>
@@ -80,10 +80,9 @@
    </div>
    <p-footer>
      <div [formGroup]="memberForm" class="ui-dialog-buttonpane ui-helper-clearfix">
-       <button type="button" pButton icon="pi pi-check" *ngIf="member.MemberId" (click)="delete(member.MemberId)"
-         label="Delete"></button>
-       <button type="button" [disabled]="!(memberForm.valid && memberForm.dirty)" pButton icon="pi pi-check"
-         (click)="save(member)" label="Save"></button>
+       <button type="button" pButton *ngIf="member.MemberId" (click)="delete(member.MemberId)" label="Delete"></button>
+       <button type="button" [disabled]="!(memberForm.valid && memberForm.dirty)" pButton (click)="save(member)"
+         label="Save"></button>
      </div>
    </p-footer>
  </p-dialog>
